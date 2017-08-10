@@ -7,7 +7,7 @@ public class ShowItem {
 	public void showItem(Store store){
 		
 		for(Product x:store.getList())
-			System.out.print(x);
+			System.out.println(x);
 	}
 
 }
