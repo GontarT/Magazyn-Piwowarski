@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class AddItem {
+public class Item {
 
 	public void addItem(Store store){
 		Scanner sc= new Scanner(System.in);
@@ -23,26 +23,22 @@ public class AddItem {
 		switch(number) {
 		case 1:	
 			String productType="S³ód";
-			Product product =new Malt(productType,producer,weight);
-			store.getList().add(product);
+			store.getList().add(new Malt(productType,producer,weight));
 			break;
 		case 2:
 			
 			productType="Chmiel";
-			product =new Hop(productType,producer,weight);
-			store.getList().add(product);
+			store.getList().add(new Hop(productType,producer,weight));
 			break;
 		case 3:
 			
 			productType="Dro¿d¿e";
-			product =new Yeast(productType,producer,weight);
-			store.getList().add(product);
+			store.getList().add(new Yeast(productType,producer,weight));
 			break;
 		case 4:
 			
 			productType="Dodatki";
-			product =new Accessories(productType,producer,weight);
-			store.getList().add(product);
+			store.getList().add(new Accessories(productType,producer,weight));
 			break;
 		}
 		
@@ -50,5 +46,12 @@ public class AddItem {
 		
 		
 		
+	}
+	
+	
+	public void showItem(Store store){
+		
+		for(Product x:store.getList())
+			System.out.println(x);
 	}
 }
