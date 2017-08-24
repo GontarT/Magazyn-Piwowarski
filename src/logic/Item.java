@@ -11,8 +11,11 @@ import java.util.Scanner;
 
 public class Item {
 
+
+	Scanner sc= new Scanner(System.in);
+
 	public void addItem(Store store){
-		Scanner sc= new Scanner(System.in);
+
 		int number=0;
 		number=sc.nextInt();
 		sc.nextLine();
@@ -21,37 +24,47 @@ public class Item {
 		System.out.println("Podaj wagê produktu w kg ");
 		Double weight=sc.nextDouble();
 		switch(number) {
-		case 1:	
+		case 1:
 			String productType="S³ód";
 			store.getList().add(new Malt(productType,producer,weight));
 			break;
 		case 2:
-			
+
 			productType="Chmiel";
 			store.getList().add(new Hop(productType,producer,weight));
 			break;
 		case 3:
-			
+
 			productType="Dro¿d¿e";
 			store.getList().add(new Yeast(productType,producer,weight));
 			break;
 		case 4:
-			
+
 			productType="Dodatki";
 			store.getList().add(new Accessories(productType,producer,weight));
 			break;
 		}
 		
-		sc.close();
+
 		
-		
-		
+
+
+
 	}
-	
-	
+
+
 	public void showItem(Store store){
-		
+
 		for(Product x:store.getList())
 			System.out.println(x);
 	}
+
+	public void removeItem(Store store){
+		System.out.println("podaj który produkt usun¹c ? ");
+		int index=sc.nextInt();
+		store.getList().remove(index-1);
+
+	}
+	
 }
+
