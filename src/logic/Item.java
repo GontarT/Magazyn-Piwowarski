@@ -1,70 +1,97 @@
 package logic;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import data.Accessories;
 import data.Hop;
 import data.Malt;
 import data.Product;
 import data.Store;
 import data.Yeast;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 
 public class Item {
 
-
-	Scanner sc= new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 
 	public void addItem(Store store){
 
 		int number=0;
-		number=sc.nextInt();
+		try{number=sc.nextInt();
+		}catch(InputMismatchException e){
+			System.out.println("Poda³eœ nieprawid³owe dane wejœciowe !!!");
+			
+		}
 		sc.nextLine();
-		System.out.println("Podaj producenta ");
-		String producer=sc.nextLine();
-		System.out.println("Podaj wagê produktu w kg ");
-		Double weight=sc.nextDouble();
+	
+		
 		switch(number) {
 		case 1:
-			String productType="S³ód";
-			store.getList().add(new Malt(productType,producer,weight));
+			try{
+			System.out.println("Podaj producenta ");
+			String producer=sc.nextLine();
+			System.out.println("Podaj wagê produktu w kg ");
+			Double weight=sc.nextDouble();
+			store.getList().add(new Malt("S³ód",producer,weight));
+			}catch (InputMismatchException e) {
+			System.out.println("Poda³eœ nieprawid³owe dane wejœciowe !!! \n");	
+			}
+			
 			break;
 		case 2:
-
-			productType="Chmiel";
-			store.getList().add(new Hop(productType,producer,weight));
+		try{
+			System.out.println("Podaj producenta ");
+			String producer=sc.nextLine();
+			System.out.println("Podaj wagê produktu w kg ");
+			Double weight=sc.nextDouble();
+			store.getList().add(new Hop("Chmiel",producer,weight));
+		}catch(InputMismatchException e){
+			System.out.println("Poda³eœ nieprawid³owe dane wejœciowe !!! \n");
+		}
 			break;
 		case 3:
-
-			productType="Dro¿d¿e";
-			store.getList().add(new Yeast(productType,producer,weight));
+		try{
+			System.out.println("Podaj producenta ");
+			String producer=sc.nextLine();
+			System.out.println("Podaj wagê produktu w kg ");
+			Double weight=sc.nextDouble();	
+			store.getList().add(new Yeast("Dro¿d¿e",producer,weight));
+		}catch (InputMismatchException e) {
+			System.out.println("Poda³eœ nieprawid³owe dane wejœciowe !!! \n");
+		}
 			break;
 		case 4:
-
-			productType="Dodatki";
-			store.getList().add(new Accessories(productType,producer,weight));
+	try{
+			System.out.println("Podaj producenta ");
+			String producer=sc.nextLine();
+			System.out.println("Podaj wagê produktu w kg ");
+			Double weight=sc.nextDouble();
+			store.getList().add(new Accessories("Dodatki",producer,weight));
+	}catch(InputMismatchException e){
+			System.out.println("Poda³eœ nieprawid³owe dane wejœciowe !!! \n");
+	}
 			break;
 		}
-		
-
-		
-
-
-
-	}
-
-
-	public void showItem(Store store){
-
-		for(Product x:store.getList())
-			System.out.println(x);
-	}
-
-	public void removeItem(Store store){
-		System.out.println("podaj który produkt usun¹c ? ");
-		int index=sc.nextInt();
-		store.getList().remove(index-1);
-
-	}
 	
-}
+		
 
+		
+
+
+
+	}
+
+	public void showItem(Store store) {
+
+		for (Product x : store.getList())
+			System.out.println(x + "\n");
+	}
+
+	public void removeItem(Store store) {
+		System.out.println("podaj który produkt usun¹c ? ");
+		int index = sc.nextInt();
+		store.getList().remove(index - 1);
+
+	}
+
+}

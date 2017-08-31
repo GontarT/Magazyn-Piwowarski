@@ -1,8 +1,8 @@
 
+
+import java.util.ArrayList;
 import java.util.Scanner;
-
-import javax.swing.text.AbstractDocument.BranchElement;
-
+import data.Product;
 import data.Store;
 import logic.Menu;
 import logic.FileReader;
@@ -13,14 +13,16 @@ import logic.Item;
 
 public class AppTest {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Store store=new Store();
 		FileReader fileReader=new FileReader();
 		Scanner sc=new Scanner(System.in);
 		Item item=new Item();
 		Menu menu=new Menu();
-		int option=1;
-
+		int option=0;
+		store.setList((ArrayList<Product>)fileReader.odczyt());
+		
 
 
 
